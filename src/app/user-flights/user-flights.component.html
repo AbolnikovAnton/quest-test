@@ -1,1 +1,15 @@
-<p>user-flights works!</p>
+<table>
+  <tr>
+    <th>Flight number</th>
+    <th>Origin</th>
+    <th>Origin Date</th>
+    <th>Destination</th>
+    <th>Destination Date</th>
+  </tr>
+  <tr *ngFor="let flight of (userFlightsSubject | async)">
+    <td>{{ flight.num }}</td>
+    <td>{{ flight.from }}</td>
+    <td>{{ flight.from_date }}</td>
+    <td>{{ flight.to_gate }}</td>
+  </tr>
+</table>

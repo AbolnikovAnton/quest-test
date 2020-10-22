@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-user-flights',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-flights.component.scss']
 })
 export class UserFlightsComponent implements OnInit {
+  userFlightsSubject = this.dataService.usersFlightSubject;
 
-  constructor() { }
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit(): void {
   }

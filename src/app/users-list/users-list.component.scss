@@ -1,0 +1,29 @@
+.container {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    flex: 0 0 64px;
+    text-align: center;
+    background-color: aqua;
+    border-bottom: 2px solid black;
+  }
+
+  .users-list{
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px 5px 5px 5px;
+  }
+  .users-list div:hover {
+    background-color: aliceblue;
+    border: 1px solid gray;
+  }
+}
+

@@ -14,6 +14,9 @@ export class UsersListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dataService.getUser().then(users => {
+      this.users = users;
+    })
   }
 
   selectUser(id: number): void {

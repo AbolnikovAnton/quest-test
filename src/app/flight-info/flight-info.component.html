@@ -1,6 +1,20 @@
-<ul *ngIf="!!(flightDetailsSubject | async)">
-  <li>Plane number {{(flightDetailsSubject | async).num}}</li>
-  <li>Duration {{(flightDetailsSubject | async).duration}}</li>
-  <li>Origin gate {{(flightDetailsSubject | async).from_gate}}</li>
-  <li>Destination gate {{(flightDetailsSubject | async).to_gate}}</li>
-</ul>
+<!--<ul *ngIf="!!(flightDetailsSubject | async)">-->
+<!--  <li>Plane number {{(flightDetailsSubject | async).num}}</li>-->
+<!--  <li>Duration {{(flightDetailsSubject | async).duration}}</li>-->
+<!--  <li>Origin gate {{(flightDetailsSubject | async).from_gate}}</li>-->
+<!--  <li>Destination gate {{(flightDetailsSubject | async).to_gate}}</li>-->
+<!--</ul>-->
+<table>
+<tr>
+  <th>Plane number</th>
+  <th>Duration</th>
+  <th>Origin gate</th>
+  <th>Destination gate</th>
+</tr>
+<tr *ngIf="!!(flightDetailsSubject | async)">
+  <td>{{(flightDetailsSubject | async).num}}</td>
+  <td>{{(flightDetailsSubject | async).duration}}</td>
+  <td>{{(flightDetailsSubject | async).from_gate}}</td>
+  <td>{{(flightDetailsSubject | async).to_gate}}</td>
+</tr>
+</table>

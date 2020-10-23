@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../data.service';
+import {Flight} from '../flight';
 
 @Component({
   selector: 'app-user-flights',
@@ -13,6 +14,10 @@ export class UserFlightsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  public getFlightInfo(flight: Flight): void{
+    this.dataService.flightDetailsSubject.next(flight);
   }
 
 }

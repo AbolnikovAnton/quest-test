@@ -6,7 +6,7 @@
     <th>Destination</th>
     <th>Destination Date</th>
   </tr>
-  <tr *ngFor="let flight of (userFlightsSubject | async)">
+  <tr *ngFor="let flight of (userFlightsSubject | async)" (click)="getFlightInfo(flight)">
     <td>{{ flight.num }}</td>
     <td>{{ flight.from }}</td>
     <td>{{ flight.from_date }}</td>

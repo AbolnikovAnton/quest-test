@@ -1,1 +1,6 @@
-<p>flight-info works!</p>
+<ul *ngIf="!!(flightDetailsSubject | async)">
+  <li>Plane number {{(flightDetailsSubject | async).num}}</li>
+  <li>Duration {{(flightDetailsSubject | async).duration}}</li>
+  <li>Origin gate {{(flightDetailsSubject | async).from_gate}}</li>
+  <li>Destination gate {{(flightDetailsSubject | async).to_gate}}</li>
+</ul>

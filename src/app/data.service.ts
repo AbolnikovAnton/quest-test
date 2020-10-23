@@ -10,10 +10,12 @@ export class DataService {
 
   constructor() {
     this.usersFlightSubject = new BehaviorSubject<Flight[]>(null);
+    this.flightDetailsSubject = new BehaviorSubject<Flight>(null);
   }
 
   public userId: number;
   public usersFlightSubject: BehaviorSubject<Flight[]>;
+  public flightDetailsSubject: BehaviorSubject<Flight>;
 
   //workers list
   public async getUser(): Promise<User[]> {
@@ -23,6 +25,7 @@ export class DataService {
   public async getUserFlights(id: number): Promise<void> {
     const userFlights = await (await fetch('https://interview-mock.herokuapp.com/api/workers/' + id)).json();
     this.usersFlightSubject.next(userFlights);
+    this.flightDetailsSubject.next(userFlights[0]);
   }
 
 }

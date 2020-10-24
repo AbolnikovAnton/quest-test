@@ -9,6 +9,7 @@ import {Flight} from '../flight';
 })
 export class UserFlightsComponent implements OnInit {
   userFlightsSubject = this.dataService.usersFlightSubject;
+  currentFlightsSubject = this.dataService.currentFlightSubject;
 
   constructor(private dataService: DataService) {
   }
@@ -18,6 +19,7 @@ export class UserFlightsComponent implements OnInit {
 
   public getFlightInfo(flight: Flight): void{
     this.dataService.flightDetailsSubject.next(flight);
+    this.dataService.currentFlightSubject.next(flight);
   }
 
 }

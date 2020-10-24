@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { User } from '../user';
+import {User} from '../user';
 import {DataService} from '../data.service';
 
 @Component({
@@ -9,6 +9,7 @@ import {DataService} from '../data.service';
 })
 export class UsersListComponent implements OnInit {
   public users: User[];
+  currentUserIdSubject = this.dataService.currentUserIdSubject;
 
   constructor(private dataService: DataService) {
   }
@@ -17,10 +18,11 @@ export class UsersListComponent implements OnInit {
     this.dataService.getUser().then(users => {
       this.users = users;
       this.dataService.getUserFlights(users[0].id);
-    })
+    });
   }
 
   selectUser(id: number): void {
     this.dataService.getUserFlights(id);
+    this.dataService.currentUserIdSubject.next(id);
   }
 }

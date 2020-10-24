@@ -20,11 +20,19 @@
     cursor: pointer;
     font-size: 18px;
     padding: 5px 5px 5px 5px;
+
+    div {
+      border: 1px solid transparent;
+    }
+
+    div:hover, div.checked {
+      background-color: aliceblue;
+      border: 1px solid gray;
+    }
+
   }
 
-  .users-list div:hover {
-    background-color: aliceblue;
-    border: 1px solid gray;
+  .users-list {
   }
 }
 

@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "quest-test"
+    }
+  },
+  "defaultProject": "quest-test",
+  "cli": {
+    "analytics": false
+  }
 }

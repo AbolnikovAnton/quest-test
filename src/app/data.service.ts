@@ -28,22 +28,26 @@ export class DataService {
     return await (await fetch('https://interview-mock.herokuapp.com/api/workers/')).json();
   }
 
-  public async getUserFlights(id: number): Promise<void> {
+  public async getUserFlights(id: number, checking?: boolean): Promise<void> {
     const userFlights = await (await fetch('https://interview-mock.herokuapp.com/api/workers/' + id)).json();
     this.usersFlightSubject.next(userFlights);
 
-    this.flightDetailsSubject.next(this.currentFlightSubject.value || userFlights[0]);
+    if (checking) {
+      this.flightDetailsSubject.next(this.currentFlightSubject.value || userFlights[0]);
+      this.currentFlightSubject.next(this.currentFlightSubject.value || userFlights[0]);
+    } else {
+      this.flightDetailsSubject.next(userFlights[0]);
+      this.currentFlightSubject.next(userFlights[0]);
+    }
   }
 
   public checker(): void {
-    console.log(1);
     if (!!this.currentUserIdSubject && !!this.currentUserIdSubject.value) {
-      this.getUserFlights(this.currentUserIdSubject.value);
+      this.getUserFlights(this.currentUserIdSubject.value, true);
     }
-    // setTimeout(this.checker, 5000);
     setTimeout(() => {
       this.checker();
-    }, 5000);
+    }, 60000);
   }
 
 }

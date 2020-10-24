@@ -7,7 +7,7 @@
     <th>Destination Date</th>
   </tr>
   <tr *ngFor="let flight of (userFlightsSubject | async)" (click)="getFlightInfo(flight)"
-      [class.checked]="(currentFlightsSubject | async) === flight">
+      [class.checked]="(currentFlightsSubject | async)?.num === flight.num">
     <td>{{ flight.num }}</td>
     <td>{{ flight.from }}</td>
     <td>{{ flight.from_date }}</td>

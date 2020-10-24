@@ -17,7 +17,7 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getUser().then(users => {
       this.users = users;
-      this.dataService.getUserFlights(users[0].id);
+      this.selectUser(users[0].id);
     });
   }
 
